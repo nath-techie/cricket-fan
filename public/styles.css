@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.cricketer {
+    display: inline-block;
+    margin: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    
+        width: 150px;  /* or any other value you prefer */
+        height: 200px;  /* adjust based on your requirements */
+        overflow: hidden;  /* hides any content that goes beyond the div dimensions */
+        /* If you want scrollbars instead of hiding the overflow content, use overflow: auto; */   
+}
+.cricketer:hover{box-shadow: 1px 1px 9px 0px #000000; }
+
+img {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+img[loading="lazy"] {
+    opacity: 1;
+}
+
+.cricketer img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.leftPane {
+    width: 200px;height: 100%;
+    float: left;
+    padding: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.topPlayer {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+
+.heartCount {
+    color: red;
+}
+
+.second-box{margin-left: 30px;}
+/* By default, hide the div */
+.made-by {
+    display: none;
+}
+
+/* Show the div on screens wider than 1024px (you can adjust this value) */
+@media screen and (min-width: 1024px) {
+    .made-by{display:block;border: 1px solid #ccc;position: absolute;top:2px;right:2px;z-index: 2;}
+    .made-by:hover{box-shadow: 1px 1px 9px 0px #ae00ff; }
+}
+
+
+
+a img{width: 50px;height: 50px;}
