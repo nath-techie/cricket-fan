@@ -1,48 +1,36 @@
-# cricket-fan
-:
+# 🏏Indian Cricketers Fan Page🏆 
 
-🏏 Indian Cricket Fan Website 🏆
-Welcome to the repository of the Indian Cricket Fan Website! A platform where cricket enthusiasts can show their admiration for their favorite Indian cricketers by giving them hearts. Let's see who tops the list!
-![image](https://github.com/nath-techie/cricket-fan/assets/64378408/82900812-1800-4182-9af6-1acead5603cd)
+**A full-stack application to show love ♥ to Indian cricketers.**
+
+[Visit the Website] https://crick-fan.onrender.com/
+
+preview:
+![image](https://github.com/nath-techie/cricket-fan/assets/64378408/6fe3a2d9-2cb9-4a75-9c84-4574a33defbe)
 
 
-Features:
-📜 List of Cricketers: Browse through a list of both legendary and emerging Indian cricket stars.
-❤️ Heart System: Show your support by giving hearts to your favorite cricketers.
-📊 Leaderboard: Witness real-time rankings based on the number of hearts each cricketer receives.
+## Overview 📖
 
-Technologies Used:
-Frontend: [Tech/framework used, e.g., React, Vue]
-Backend: [Tech/framework used, e.g., Node.js, Express]
-Database: PostgreSQL
-Getting Started:
-Clone the Repository:
+This website is designed for cricket fans to give "hearts" to their favorite Indian cricketers. The more hearts a cricketer gets, the higher they rank on the leaderboard. Let's see who tops the list!
 
-bash
-Copy code
-git clone [repository-link]
-Navigate to the directory:
+## Features 💡
 
-bash
-Copy code
-cd directory-name
-Install Dependencies:
+- **Full-stack Design:** Integrated with a database to store and retrieve player information.
+- **Real-time Ranking:** As fans give hearts, the ranking of the cricketers updates in real time by clicking on "refresh list" button.
+- **Responsive:** Optimized for both desktop and mobile views.
 
-Copy code
-npm install
-Start the Server:
+## Tech Stack 🛠️
 
-sql
-Copy code
-npm start
-Open your browser and navigate to http://localhost:[your-port-number].
+- Backend:  Node.js, Express.js
+- Database: PostgreSQL
 
-Contribution:
-Contributions are always welcome! If you have suggestions, enhancements, or bug reports, feel free to raise an issue or submit a pull request.
+## Contribute 🤝
 
-License:
+If you like the project, don't forget to give it a ⭐ on GitHub. If you find any issues or have feature suggestions, feel free to open an issue or submit a pull request.
+
+## License 📄
+
 This project is licensed under the MIT License.
 
-Acknowledgments:
-A huge thank you to all the cricket fans out there for their constant support and love. Let's celebrate the spirit of cricket together!
+## Connect with me 🌐
 
+- [LinkedIn](https://www.linkedin.com/in/a-sabari-nathan/)
