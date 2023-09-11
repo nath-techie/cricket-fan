@@ -5,32 +5,33 @@ const pool = new Pool({
     ssl: { rejectUnauthorized: false }
 });
 
-// Drop old table
-pool.query('DROP TABLE IF EXISTS Cricketer', (err) => {
+// Check if the Cricketer table exist and create if not exist
+// Check if Cricketer table exists
+pool.query("SELECT count(*) FROM information_schema.tables WHERE table_name = 'Cricketer'", (err, result) => {
     if (err) {
-        console.error("Error dropping table:", err);
+        console.error("Error checking if table exists:", err);
         return;
     }
-    console.log("Dropped table Cricketer");
 
-    // Create new Cricketer table
-    pool.query(`
-        CREATE TABLE IF NOT EXISTS Cricketer (
-            id SERIAL PRIMARY KEY,
-            name TEXT,
-            image_url TEXT,
-            hearts INTEGER DEFAULT 0
-        )
-    `, (err) => {
-        if (err) {
-            console.error("Error creating table:", err);
-            return;
-        }
-        console.log("Table Cricketer created successfully");
-
-        // Insert data into Cricketer table
+    // If table doesn't exist, create it
+    if (parseInt(result.rows[0].count) === 0) {
         pool.query(`
-            INSERT INTO Cricketer (name, image_url) VALUES 
+            CREATE TABLE IF NOT EXISTS Cricketer (
+                id SERIAL PRIMARY KEY,
+                name TEXT,
+                image_url TEXT,
+                hearts INTEGER DEFAULT 0
+            )
+        `, (err) => {
+            if (err) {
+                console.error("Error creating table:", err);
+                return;
+            }
+            console.log("Table Cricketer created successfully");
+
+            // Insert data into Cricketer table
+            pool.query(`
+                INSERT INTO Cricketer (name, image_url) VALUES 
             ('Kapil Dev','https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_640,q_50/lsci/db/PICTURES/CMS/320300/320314.png'),
             ('Anjali Sarvani','https://img1.hscicdn.com/image/upload/f_auto,t_h_100_2x/lsci/db/PICTURES/CMS/353900/353965.4.jpg'),
             ('Bareddy Anusha','https://wassets.hscicdn.com/static/images/player-jersey.svg'),
@@ -113,12 +114,54 @@ pool.query('DROP TABLE IF EXISTS Cricketer', (err) => {
             ('Devika Vaidya','https://wassets.hscicdn.com/static/images/player-jersey.svg'),
             ('Pooja Vastrakar','https://wassets.hscicdn.com/static/images/player-jersey.svg'),
             ('Washington Sundar','https://img1.hscicdn.com/image/upload/f_auto,t_h_100_2x/lsci/db/PICTURES/CMS/362600/362608.1.png')
-        `,(err) => {
-            if (err) {
-                console.error("Error inserting data:", err);
-                return;
-            }
-            console.log("Data inserted successfully!");
+            `, (err) => {
+                if (err) {
+                    console.error("Error inserting data:", err);
+                    return;
+                }
+                console.log("Data inserted successfully!");
+            });
         });
-    });
+    } else {
+        console.log("Table Cricketer already exists. No operation performed.");
+    }
 });
+
+pool.end();
+
+
+
+//     pool.query(`
+//         CREATE TABLE IF NOT EXISTS Cricketer (
+//             id SERIAL PRIMARY KEY,
+//             name TEXT,
+//             image_url TEXT,
+//             hearts INTEGER DEFAULT 0
+//         )
+//     `, (err) => {
+//         if (err) {
+//             console.error("Error creating table:", err);
+//             return;
+//         }
+//         console.log("Table Cricketer created successfully");
+
+//         // Insert data into Cricketer table
+// if (parseInt(result.rows[0].count) === 0)
+// {
+//         pool.query(`
+//             INSERT INTO Cricketer (name, image_url) VALUES 
+//             ('Kapil Dev','https://img1.hscicdn.com/image/upload/f_auto,t_ds_square_w_640,q_50/lsci/db/PICTURES/CMS/320300/320314.png'),
+//             ('Washington Sundar','https://img1.hscicdn.com/image/upload/f_auto,t_h_100_2x/lsci/db/PICTURES/CMS/362600/362608.1.png')
+//         `,(err) => {
+//             if (err) {
+//                 console.error("Error inserting data:", err);
+//                 return;
+//             }
+//             console.log("Data inserted successfully!");
+
+       
+//         });
+//     }
+
+//     });
+
